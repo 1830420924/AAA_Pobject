@@ -88,6 +88,16 @@ python train_chewing_audio.py --limit-per-class 20 --epochs 2
 python train_chewing_audio.py --amp
 ```
 
+## 推荐训练命令
+
+如果目标是尽量提高准确率，同时缩短单轮训练时间，可以优先使用下面的命令：
+
+```bash
+python train_chewing_audio.py --data-dir archive/clips_rd --output-dir runs/chewing_audio --model-size large --epochs 120 --batch-size 64 --lr 8e-4 --weight-decay 1e-3 --label-smoothing 0.05 --scheduler onecycle --amp --cache-audio --patience 30 --min-epochs 60
+```
+
+如果显存不足，把 `--batch-size 64` 改成 `--batch-size 32`；如果内存不足，去掉 `--cache-audio`。
+
 训练默认参数包括：
 
 | 参数 | 默认值 | 说明 |
@@ -100,6 +110,10 @@ python train_chewing_audio.py --amp
 | `--sample-rate` | `16000` | 统一音频采样率 |
 | `--duration` | `4.0` | 每条音频统一长度，单位秒 |
 | `--n-mels` | `96` | Mel 频谱通道数 |
+| `--model-size` | `base` | 模型规模，可选 `legacy`、`tiny`、`base`、`large` |
+| `--scheduler` | `onecycle` | 学习率调度器 |
+| `--label-smoothing` | `0.05` | 标签平滑，减轻过拟合 |
+| `--cache-audio` | 关闭 | 将音频缓存到内存，加快训练 |
 | `--train-ratio` | `0.8` | 训练集比例 |
 | `--val-ratio` | `0.1` | 验证集比例 |
 
@@ -216,7 +230,8 @@ runs/chewing_audio/training_curves.png
 2. 如果没有 `runs/chewing_audio/best_model.pt`，需要先运行训练脚本。
 3. 数据集类别文件夹名称会被作为类别名称，请保持训练、预测、评估时的数据集类别顺序一致。
 4. Windows 环境下如果 DataLoader 多进程报错，可以保持 `--num-workers 0`。
-5. 如果训练时显存不足，可以减小 `--batch-size`，例如改为 `16` 或 `8`。
+5. 如果训练时显存不足，可以减小 `--batch-size`，例如改为 `32`、`16` 或 `8`。
+6. 80% 准确率不能只靠改参数保证，还和数据质量、类别相似度、噪声、标注是否准确有关。
 
 ## 作者
 
