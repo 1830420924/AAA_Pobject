@@ -1,0 +1,6 @@
+{
+  "best_val_acc": 0.014084507042253521,
+  "test_loss": 3.445181894302368,
+  "test_acc": 0.0,
+  "best_model": "runs\\smoke_test_fp32\\best_model.pt"
+}

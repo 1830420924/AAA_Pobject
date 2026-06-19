@@ -1,0 +1,6 @@
+{
+  "best_val_acc": 0.09859154929577464,
+  "test_loss": NaN,
+  "test_acc": 1.0,
+  "best_model": "runs\\smoke_test\\best_model.pt"
+}

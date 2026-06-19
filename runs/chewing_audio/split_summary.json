@@ -1,0 +1,27 @@
+{
+  "train": 8964,
+  "val": 933,
+  "test": 1243,
+  "classes": {
+    "0": "aloe",
+    "1": "burger",
+    "2": "cabbage",
+    "3": "candied_fruits",
+    "4": "carrots",
+    "5": "chips",
+    "6": "chocolate",
+    "7": "drinks",
+    "8": "fries",
+    "9": "grapes",
+    "10": "gummies",
+    "11": "ice-cream",
+    "12": "jelly",
+    "13": "noodles",
+    "14": "pickles",
+    "15": "pizza",
+    "16": "ribs",
+    "17": "salmon",
+    "18": "soup",
+    "19": "wings"
+  }
+}

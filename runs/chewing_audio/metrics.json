@@ -1,0 +1,6 @@
+{
+  "best_val_acc": 0.2936763129689175,
+  "test_loss": 2.1758156242815603,
+  "test_acc": 0.3990345937248592,
+  "best_model": "runs\\chewing_audio\\best_model.pt"
+}
